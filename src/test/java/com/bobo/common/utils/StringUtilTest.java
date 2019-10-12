@@ -8,6 +8,18 @@ import java.util.Date;
 import org.junit.Test;
 
 public class StringUtilTest {
+	@Test
+	public void testMobileAndEmail() {
+		boolean b = StringUtil.isEmail("3488111qq.com");
+		boolean c = StringUtil.isMobile("23799999999");
+		System.out.println(b);
+		System.out.println(c);
+	}
+	
+	
+	
+	
+	
 
 	@Test
 	public void testHasLength() {
