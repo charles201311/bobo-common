@@ -39,22 +39,21 @@ public class RandomUtil {
 		return dest;
 	}
 
-	public static void main(String[] args) {
-		int[] is = RandomUtil.subRandom(1, 5, 3);
-		for (int i : is) {
-			System.out.println(i);
-		}
-	}
 
 	// 方法3：返回1个1-9,a-Z之间的随机字符。 (8分)
 	public static char randomCharacter() {
-		return 0;
-		// TODO 实现代码
+		String str="123456789qwrtyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+		
+		return str.charAt(random(0, str.length() -1));
 	}
 
 	// 方法4：返回参数length个字符串(5分)，方法内部要调用randomCharacter()方法 (4分)
 	public static String randomString(int length) {
-		return null;
-		// TODO 实现代码
+		String str="";
+		for(int i =0;i<length; i++) {
+			str+=randomCharacter();
+		}
+		
+		return str;
 	}
 }

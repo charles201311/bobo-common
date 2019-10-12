@@ -1,7 +1,9 @@
 package com.bobo.common.utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * 
@@ -11,6 +13,28 @@ import java.util.Date;
  * @date: 2019年10月11日 上午11:00:15
  */
 public class DateUtil {
+	
+	/**
+	 * 返回个在minDate和maxDAte之间的随机日期
+	 * @Title: getDate 
+	 * @Description: TODO
+	 * @param minDate
+	 * @param maxDate
+	 * @return
+	 * @return: Date
+	 */
+	public static Date getDate(Date minDate ,Date maxDate) {
+		
+		//最小毫米数
+		long min = minDate.getTime();
+		long max = maxDate.getTime();
+	
+		long x =(long) ((Math.random() * (max -min +1)) +min);
+		
+		
+		return new Date(x);
+		
+	}
 	
 	
 	
