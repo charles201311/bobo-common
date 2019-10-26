@@ -1,18 +1,68 @@
 package com.bobo.common.utils;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Random;
 
 /**
  * 
  * @ClassName: DataUtil 
  * @Description: 日期工具类
- * @author: charles
+ * @author: bobo
  * @date: 2019年10月11日 上午11:00:15
  */
 public class DateUtil {
+	
+	
+	/**
+	 * 
+	 * @Title: getDateByBefore 
+	 * @Description: 返回昨天的时间
+	 * @return
+	 * @return: Date
+	 */
+	public  static Date getDateByBefore() {
+		//用系统时间初始化Calender
+		Calendar c = Calendar.getInstance();
+		//让系统时间减去1天
+		c.add(Calendar.DAY_OF_MONTH, -1);
+		return c.getTime();
+	}
+	
+	
+	
+	
+	/**
+	 * 
+	 * @Title: getAge 
+	 * @Description: 根据生日计算年龄
+	 * @param birthday
+	 * @return
+	 * @return: int
+	 */
+	public static int getAge(Date birthday) {
+		// 获取当前系统的日历类
+		Calendar c = Calendar.getInstance();
+		// 获取当前年月日
+		int yearNow = c.get(Calendar.YEAR);
+		int monthNow = c.get(Calendar.MONTH);
+		int dateNow = c.get(Calendar.DAY_OF_MONTH);
+		c.setTime(birthday);// 用生日初始化日历类
+		int yearBirth = c.get(Calendar.YEAR);
+		int monthBirth = c.get(Calendar.MONTH);
+		int dateBirth = c.get(Calendar.DAY_OF_MONTH);
+		// 年龄 1990-02-10 2019-02-08
+		int age = yearNow - yearBirth;
+		// 出生月份大于前月份 年龄减少1
+		if (monthBirth > monthNow) {
+			age--;
+		}
+		// 如果月份一致并且 日期大于当前日期 年龄减少1
+		if (monthBirth == monthNow && dateBirth > dateNow) {
+			age--;
+		}
+		return age;
+		
+	}
 	
 	/**
 	 * 返回个在minDate和maxDAte之间的随机日期
@@ -25,22 +75,17 @@ public class DateUtil {
 	 */
 	public static Date getDate(Date minDate ,Date maxDate) {
 		
-		//最小毫米数
+		//最小毫秒数
 		long min = minDate.getTime();
 		long max = maxDate.getTime();
-	
 		long x =(long) ((Math.random() * (max -min +1)) +min);
-		
-		
 		return new Date(x);
 		
 	}
 	
-	
-	
 	/*
 	* 方法1：(5分) 返回给定日期的月初
-	* 给一个时间对象，返回该时间所在月的1日0时0分0秒。例如一个Date对象的值是2019-05-18 11:37:22
+	* 给一个时间对象，返回该时间所在月的1日0时0分0秒。例如一个Date对象的值是2019-05-18 11:37:
 	* 则返回的结果为2019-05-01 00:00:00
 	*/
 	public static Date getDateByInitMonth(Date src){
@@ -61,7 +106,7 @@ public class DateUtil {
 	/*
 	* 方法2：(5分) //返回给定日期的月末
 	* 给一个时间对象，返回该时间所在月的最后日23时59分59秒，需要考虑月大月小和二月特殊情况。
-	* 例如一个Date对象的值是2019-05-18 11:37:22，则返回的时间为2019-05-31 23:59:59
+	* 例如一个Date对象的值是2019-05-18 11:37:，则返回的时间为2019-05-31 23:59:59
 	* 例如一个Date对象的值是2019-02-05 15:42:18，则返回的时间为2019-02-28 23:59:59
 	*/
 	public static Date getDateByFullMonth(Date src){

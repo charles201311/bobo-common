@@ -9,7 +9,14 @@ import java.util.Date;
 import org.junit.Test;
 
 public class DataUtilTest {
-
+	
+	
+	/*
+	 * @Test public void testgetDateBefore() { Date date =
+	 * DateUtil.getDateByBefore(); SimpleDateFormat df =new
+	 * SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); System.out.println(df.format(date));
+	 * }
+	 */
 	@Test//月初
 	public void testGetDateByInitMonth() {
 		

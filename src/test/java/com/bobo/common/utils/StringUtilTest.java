@@ -8,6 +8,32 @@ import java.util.Date;
 import org.junit.Test;
 
 public class StringUtilTest {
+	
+	@Test
+	public void toUniqueTerm() {
+		String str="     Spring Mvc      ";
+		String string = StringUtil.toUniqueTerm(str);
+		
+		System.out.println(string);
+	}
+	
+	
+	
+	@Test
+	public void testPercent() {
+		String string = StringUtil.percent(1, 3);
+		
+		System.out.println(string);
+	}
+	
+	
+	
+	@Test
+	public void test1() {
+		String src="123.34";
+		boolean b = StringUtil.isNumber(src);
+		System.out.println(b);
+	}
 	@Test
 	public void testMobileAndEmail() {
 		boolean b = StringUtil.isEmail("3488111qq.com");

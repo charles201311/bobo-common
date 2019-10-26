@@ -1,9 +1,61 @@
 package com.bobo.common.utils;
 
 import java.io.UnsupportedEncodingException;
+import java.text.NumberFormat;
 import java.util.Random;
 
 public class StringUtil {
+	
+	/*
+	* 方法：生成唯一标签名，处理步骤：
+	* 1、全部变成小写；
+	* 2、清空两边的空格，把中间所有的空格替换成“-”；
+	* 3、使用URLEncoder.encode()编码
+	* 最后返回处理的结果。
+	* 举例“Spring MVC”处理后为“spring-mvc”，“Spring Mvc”处理后也为“spring-mvc”
+	*/
+	public static String toUniqueTerm(String term){
+	  return 	term.toLowerCase().trim().replaceAll(" ", "-");
+	}
+	
+	/**
+	 * 百分比计算
+	 * @Title: percent 
+	 * @Description: TODO
+	 * @param num
+	 * @param total
+	 * @return
+	 * @return: String
+	 */
+	public static String percent(Integer num,Integer total ) {
+		// 创建一个数值格式化对象   
+		NumberFormat numberFormat = NumberFormat.getInstance(); 
+		// 设置精确到小数点后0位   
+		numberFormat.setMaximumFractionDigits(0); 
+		String result = numberFormat.format((float)num/(float)total*100);
+		return result;
+	}
+	
+	
+	
+
+	/**
+	 * 
+	 * @Title: isNumber 
+	 * @Description: 判断是否为数值类型,包含浮点数
+	 * @param src
+	 * @return
+	 * @return: boolean
+	 */
+	public static boolean isNumber(String src) {
+		//判断字符中是否包含. ,还需要判断.不能再
+		
+		String regex = "^[0-9]+(.[0-9]+)?$";
+		
+		return src.matches(regex);
+		
+	}
+	
 
 	// 验证是否邮箱
 	public static boolean isEmail(String src) {

@@ -6,7 +6,7 @@ import java.io.File;
  * 
  * @ClassName: FileUtil 
  * @Description: 文件处理类
- * @author: charles
+ * @author: bobo
  * @date: 2019年10月11日 下午2:53:40
  */
 public class FileUtil {

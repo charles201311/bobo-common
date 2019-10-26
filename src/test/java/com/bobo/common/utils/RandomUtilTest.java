@@ -8,6 +8,7 @@ public class RandomUtilTest {
 
 	@Test
 	public void testRandom() {
+	
 		int i = RandomUtil.random(1, 10);
 		System.out.println(i);
 	}
