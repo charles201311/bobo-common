@@ -9,6 +9,13 @@ import org.junit.Test;
 
 public class StringUtilTest {
 	
+	@Test//测试是否是有效的地址
+	public void isHttpUrl() {
+		String url="https://www.baidu.com22222";
+			
+		System.out.println(StringUtil.isHttpUrl(url));
+	}
+	
 	@Test
 	public void toUniqueTerm() {
 		String str="     Spring Mvc      ";
