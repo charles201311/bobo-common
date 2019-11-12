@@ -8,6 +8,12 @@ public class FileUtilTest {
 
 	@Test
 	public void testGetExtendName() {
+		
+		System.out.println(new Integer(9).byteValue());
+		for (int i = 0; i <100; i++) {
+			System.out.println(Math.random());
+		}
+	
 		String fileName="1706d.doc";
 		
 		String name = FileUtil.getExtendName(fileName);
